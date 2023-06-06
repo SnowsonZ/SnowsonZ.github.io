@@ -12,6 +12,115 @@
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
+	    
+	var data = [
+  {
+    name: 'A股',
+    children: [
+      {
+        name: '行业',
+        value: 23500,
+        children: [
+          {
+            name: '医疗/医药',
+            value: 9700
+          },
+          {
+            name: '混合',
+            value: 6000
+          },
+          {
+            name: '信息技术',
+            value: 3000
+          },
+          {
+            name: '白酒',
+            value: 3000
+          },
+          {
+            name: '环保',
+            value: 1800
+          }
+        ]
+      },
+      {
+        name: '大盘',
+        value: 11900,
+        children: [
+          {
+            name: '沪深300',
+            value: 6500
+          },
+          {
+            name: '红利',
+            value: 5400
+          }
+        ]
+      },
+      {
+        name: '中小盘',
+        value: 11000,
+        children: [
+          {
+            name: '中证500',
+            value: 11000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: '香港',
+    children: [
+      {
+        name: '科技',
+        value: 12000,
+        children: [
+          {
+            name: '中概',
+            value: 12000
+          }
+        ]
+      },
+      {
+        name: '生物医药',
+        value: 4500,
+        children: [
+          {
+            name: '恒生医疗',
+            value: 4500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: '美股',
+    value: 4700,
+    children: [
+      {
+        name: '大盘',
+        value: 2300,
+        children: [
+          {
+            name: '标普500',
+            value: 2300
+          }
+        ]
+      },
+      {
+        name: '科技',
+        value: 2400,
+        children: [
+          {
+            name: '纳斯达克100',
+            value: 2400
+          }
+        ]
+      }
+    ]
+  }
+];
  
         // 指定图表的配置项和数据
         var option = {
@@ -22,39 +131,7 @@
 		  borderRadius: 7,
 		  borderWidth: 2
 		},
-                data: [{
-                    name: 'A',
-                    value: 10,
-                    children: [{
-                        value: 3,
-                        name: 'Aa'
-                    }, {
-                        value: 5,
-                        name: 'Ab'
-                    }, {
-                        value: 2,
-                        name: 'Ac'
-                    }]
-                }, {
-                    name: 'B',
-                    children: [{
-                        name: 'Ba',
-                        value: 4
-                    }, {
-                        name: 'Bb',
-                        value: 2
-                    }]
-                }, {
-                    name: 'C',
-                    value: 5,
-			children: [{
-                        value: 2,
-                        name: 'Ca'
-                    }, {
-                        value: 3,
-                        name: 'Cb'
-                    }]
-                }]
+        data: data
             }
         };
 
