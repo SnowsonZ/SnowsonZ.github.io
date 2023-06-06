@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>ECharts 实例</title>
     <!-- 引入 echarts.js -->
-    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/5.4.2/echarts.min.js"></script>
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
@@ -17,6 +17,11 @@
         var option = {
             series: {
                 type: 'sunburst',
+				radius: [60, '90%'],
+				itemStyle: {
+				  borderRadius: 7,
+				  borderWidth: 2
+				},
                 data: [{
                     name: 'A',
                     value: 10,
