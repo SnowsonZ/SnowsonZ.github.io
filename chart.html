@@ -22,7 +22,7 @@
         value: 23500,
         children: [
           {
-            name: '医疗/医药',
+            name: '医药',
             value: 9700
           },
           {
@@ -30,7 +30,7 @@
             value: 6000
           },
           {
-            name: '信息技术',
+            name: '信息',
             value: 3000
           },
           {
@@ -45,15 +45,11 @@
       },
       {
         name: '大盘',
-        value: 11900,
+        value: 6500,
         children: [
           {
-            name: '沪深300',
+            name: '300',
             value: 6500
-          },
-          {
-            name: '红利',
-            value: 5400
           }
         ]
       },
@@ -62,11 +58,35 @@
         value: 11000,
         children: [
           {
-            name: '中证500',
+            name: '500',
             value: 11000
           }
         ]
-      }
+      },
+	   {
+		name: '价值',
+		value: 5400,
+		children: [
+          {
+            name: '红利',
+            value: 5400
+          }
+		]
+	   },
+	   {
+		name: '债券',
+		value: 6300,
+		children: [
+          {
+            name: '可转债',
+            value: 6000
+          },
+		  {
+            name: '债券',
+            value: 300
+          }
+		]
+	   }
     ]
   },
   {
@@ -83,7 +103,7 @@
         ]
       },
       {
-        name: '生物医药',
+        name: '医疗',
         value: 4500,
         children: [
           {
@@ -113,7 +133,7 @@
         value: 2400,
         children: [
           {
-            name: '纳斯达克100',
+            name: '纳指100',
             value: 2400
           }
         ]
@@ -134,7 +154,6 @@
         data: data
             }
         };
-
  
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
