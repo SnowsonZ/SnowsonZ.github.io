@@ -177,7 +177,7 @@
 
     function label_format(params) {
       var length = params.treePathInfo.length;
-      var percent = ((params.treePathInfo[length - 1].value / params.treePathInfo[length - 2].value) * 100).toFixed(2);
+      var percent = ((params.treePathInfo[length - 1].value / params.treePathInfo[0].value) * 100).toFixed(2);
       return params.name + '\n(' + percent + '%)';
     }
   </script>
