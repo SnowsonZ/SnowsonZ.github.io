@@ -1,171 +1,186 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>ECharts 实例</title>
-    <!-- 引入 echarts.js -->
-    <script src="https://cdn.staticfile.org/echarts/5.4.2/echarts.min.js"></script>
+  <meta charset="utf-8">
+  <title>ECharts 实例</title>
+  <!-- 引入 echarts.js -->
+  <script src="https://cdn.staticfile.org/echarts/5.4.2/echarts.min.js"></script>
 </head>
+
 <body>
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 100%;height:600px;display:flex; justify-content:center"></div>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
-	    
-	var data = [
-  {
-    name: 'A股',
-	value: 56800,
-    children: [
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <div id="main" style="width: 100%;height:600px;display:flex; justify-content:center"></div>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    var data = [
       {
-        name: '行业',
-        value: 25500,
+        name: 'A股',
+        value: 56800,
         children: [
           {
-            name: '医药',
-            value: 11700
+            name: '行业',
+            value: 25500,
+            children: [
+              {
+                name: '医药',
+                value: 11700
+              },
+              {
+                name: '混合',
+                value: 6000
+              },
+              {
+                name: '信息',
+                value: 3000
+              },
+              {
+                name: '白酒',
+                value: 3000
+              },
+              {
+                name: '环保',
+                value: 1800
+              }
+            ]
           },
           {
-            name: '混合',
-            value: 6000
+            name: '大盘',
+            value: 6500,
+            children: [
+              {
+                name: '300',
+                value: 6500
+              }
+            ]
           },
           {
-            name: '信息',
-            value: 3000
+            name: '中小盘',
+            value: 13100,
+            children: [
+              {
+                name: '500',
+                value: 11000
+              },
+              {
+                name: '1000',
+                value: 800
+              },
+              {
+                name: '创业',
+                value: 1300
+              }
+            ]
           },
           {
-            name: '白酒',
-            value: 3000
+            name: '价值',
+            value: 5400,
+            children: [
+              {
+                name: '红利',
+                value: 5400
+              }
+            ]
           },
           {
-            name: '环保',
-            value: 1800
-          }
-        ]
-      },
-      {
-        name: '大盘',
-        value: 6500,
-        children: [
-          {
-            name: '300',
-            value: 6500
-          }
-        ]
-      },
-      {
-        name: '中小盘',
-        value: 13100,
-        children: [
-          {
-            name: '500',
-            value: 11000
-          },
-		  {
-            name: '1000',
-            value: 800
-          },
-		  {
-            name: '创业',
-            value: 1300
-          }
-        ]
-      },
-	   {
-		name: '价值',
-		value: 5400,
-		children: [
-          {
-            name: '红利',
-            value: 5400
-          }
-		]
-	   },
-	   {
-		name: '债券',
-		value: 6300,
-		children: [
-          {
-            name: '可转债',
-            value: 6000
-          },
-		  {
             name: '债券',
-            value: 300
-          }
-		]
-	   }
-    ]
-  },
-  {
-    name: '香港',
-    children: [
-      {
-        name: '科技',
-        value: 12000,
-        children: [
-          {
-            name: '中概',
-            value: 12000
+            value: 6300,
+            children: [
+              {
+                name: '可转债',
+                value: 6000
+              },
+              {
+                name: '债券',
+                value: 300
+              }
+            ]
           }
         ]
       },
       {
-        name: '医疗',
-        value: 4500,
+        name: '香港',
         children: [
           {
-            name: '恒生医疗',
-            value: 4500
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: '美股',
-    value: 4700,
-    children: [
-      {
-        name: '大盘',
-        value: 2300,
-        children: [
+            name: '科技',
+            value: 12000,
+            children: [
+              {
+                name: '中概',
+                value: 12000
+              }
+            ]
+          },
           {
-            name: '标普500',
-            value: 2300
+            name: '医疗',
+            value: 4500,
+            children: [
+              {
+                name: '恒生医疗',
+                value: 4500
+              }
+            ]
           }
         ]
       },
       {
-        name: '科技',
-        value: 2400,
+        name: '美股',
+        value: 4700,
         children: [
           {
-            name: '纳指100',
-            value: 2400
+            name: '大盘',
+            value: 2300,
+            children: [
+              {
+                name: '标普500',
+                value: 2300
+              }
+            ]
+          },
+          {
+            name: '科技',
+            value: 2400,
+            children: [
+              {
+                name: '纳指100',
+                value: 2400
+              }
+            ]
           }
         ]
       }
-    ]
-  }
-];
- 
-        // 指定图表的配置项和数据
-        var option = {
-            series: {
-                type: 'sunburst',
-		radius: [60, '90%'],
-		itemStyle: {
-		  borderRadius: 7,
-		  borderWidth: 2
-		},
-        data: data
-            }
-        };
- 
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
+    ];
+
+    // 指定图表的配置项和数据
+    var option = {
+      series: {
+        type: 'sunburst',
+        radius: [60, '90%'],
+        itemStyle: {
+          borderRadius: 7,
+          borderWidth: 2
+        },
+        data: data,
+        label: {
+          color: '#000',
+          fontWeight: 'bold',
+          rotate: 0,
+          formatter: label_format
+        }
+      }
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    function label_format(params) {
+      var length = params.treePathInfo.length;
+      var percent = ((params.treePathInfo[length - 1].value / params.treePathInfo[length - 2].value) * 100).toFixed(2);
+      return params.name + '\n(' + percent + '%)';
+    }
+  </script>
 </body>
+
 </html>
