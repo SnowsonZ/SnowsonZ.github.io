@@ -15,11 +15,9 @@
     var data = [
       {
         name: 'A股',
-        value: 58800,
         children: [
           {
             name: '行业',
-            value: 25500,
             children: [
               {
                 name: '医药',
@@ -45,7 +43,6 @@
           },
           {
             name: '大盘',
-            value: 6500,
             children: [
               {
                 name: '300',
@@ -55,7 +52,6 @@
           },
           {
             name: '中小盘',
-            value: 13100,
             children: [
               {
                 name: '1000',
@@ -73,7 +69,6 @@
           },
           {
             name: '价值',
-            value: 5400,
             children: [
               {
                 name: '红利',
@@ -83,14 +78,13 @@
           },
           {
             name: '债券',
-            value: 8300,
             children: [
               {
                 name: '可转债',
                 value: 8000
               },
               {
-                name: '国债',
+                name: '纯债',
                 value: 300
               }
             ]
@@ -102,7 +96,6 @@
         children: [
           {
             name: '科技',
-            value: 12000,
             children: [
               {
                 name: '中概',
@@ -112,7 +105,6 @@
           },
           {
             name: '医疗',
-            value: 4500,
             children: [
               {
                 name: '恒生医疗',
@@ -124,11 +116,9 @@
       },
       {
         name: '美股',
-        value: 4700,
         children: [
           {
             name: '大盘',
-            value: 2300,
             children: [
               {
                 name: '标普500',
@@ -138,7 +128,6 @@
           },
           {
             name: '科技',
-            value: 2400,
             children: [
               {
                 name: '纳指100',
@@ -184,7 +173,6 @@
       }
     };
 
-    // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
     function label_format(params, seperator) {
