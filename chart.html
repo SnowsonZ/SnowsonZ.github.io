@@ -3,22 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>ECharts 实例</title>
-  <!-- 引入 echarts.js -->
+  <title>Sunburst Example</title>
   <script src="https://cdn.staticfile.org/echarts/5.4.2/echarts.min.js"></script>
 </head>
 
 <body>
-  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
   <div id="main" style="width: 100%;height:600px;display:flex; justify-content:center"></div>
   <script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
 
     var data = [
       {
         name: 'A股',
-        value: 56800,
+        value: 58800,
         children: [
           {
             name: '行业',
@@ -61,12 +58,12 @@
             value: 13100,
             children: [
               {
-                name: '500',
-                value: 11000
-              },
-              {
                 name: '1000',
                 value: 800
+              },
+              {
+                name: '500',
+                value: 11000
               },
               {
                 name: '创业',
@@ -86,14 +83,14 @@
           },
           {
             name: '债券',
-            value: 6300,
+            value: 8300,
             children: [
               {
                 name: '可转债',
-                value: 6000
+                value: 8000
               },
               {
-                name: '债券',
+                name: '国债',
                 value: 300
               }
             ]
@@ -153,32 +150,47 @@
       }
     ];
 
-    // 指定图表的配置项和数据
     var option = {
       series: {
         type: 'sunburst',
-        radius: [60, '90%'],
+        radius: [25, '100%'],
         itemStyle: {
-          borderRadius: 7,
-          borderWidth: 2
+          borderRadius: 1,
+          borderWidth: 1
         },
         data: data,
         label: {
-          color: '#000',
+          color: '#fff',
           fontWeight: 'bold',
-          rotate: 0,
-          formatter: label_format
-        }
+          align: 'center',
+          rotate: 'tangential',
+          formatter: function (params) {
+            return label_format(params, '\n')
+          }
+        },
+        levels: [
+          {},
+          {},
+          {},
+          {
+            label: {
+              rotate: 'radial',
+              formatter: function (params) {
+                return label_format(params, ' ')
+              }
+            }
+          }
+        ]
       }
     };
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
-    function label_format(params) {
+    function label_format(params, seperator) {
       var length = params.treePathInfo.length;
-      var percent = ((params.treePathInfo[length - 1].value / params.treePathInfo[0].value) * 100).toFixed(2);
-      return params.name + '\n' + percent + '%';
+      var percent = (params.treePathInfo[length - 1].value / params.treePathInfo[0].value * 100).toFixed(2);
+      return params.name + seperator + percent + '%';
     }
   </script>
 </body>
